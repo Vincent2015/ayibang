@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background: #f0f0f0;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+         header{
+         font-family: sans-serif;
+          color: #323237;
+          font-size:1.2em;
+         }
+             
+         #cloud img{
+          position: absolute;
+          left: 10px;
+          top:20px;
+         }
+        .topbar {
+            background: #f2f2f2;
+            height: 50px;
+            border-bottom: 1px solid #DDDFE3;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+            color: #323237;
+        }
+
+         
+        .activebar {
+            display: block;
+        }
+        
+        .h10 {height: 10px;background: #f0f0f0;}	
+		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}	
+		.fr {float: right;}	
+		.hint {color: #666;font-size: 12px;margin-right: 5px;}	
+	
+		.firstblock, .secondblock, .thirdblock {background-color: #fff;margin-top:10px;}	
+		/* 头部登陆 */	
+		.login {position:relative;background:#fff;/*background-image: url(../image/api_31.png);*/background-repeat: no-repeat; background-size: contain; height: 105px;margin-top:5px;}	
+		.loginbg { width: 100%;}	
+		.login .personal_logo {position: absolute; left:0;top: 25px; width: 70px; margin-left: 20px;}	
+		.person_arrow {position: absolute;height: 20px; right: 10px; top: 90px;}	
+		.login .userinfo {position: absolute; top: 30px; margin-left: 100px;}	
+		.login .userinfo .title {font-size: 20px; color: #000;}	
+		.login .userinfo .subtitle {font-size: 14px; color: #000;border: 1px solid #fff;display: inline-block;padding: 3px;border-radius: 4px;margin-top: 5px;}
+		
+		/* 设置条目 */	
+		.item {height: 50px;line-height: 50px;padding-left: 15px;background-color: #fff;}	
+		.item_ico {float: left;width: 30px;padding: 10px 10px 10px 0;}	
+		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
+	
+		.presshover {background-color: #FAFAFA;}	
+		
+		 #charge{
+       width:100%;
+       height:60px;
+       margin:0 auto;
+       /*background:url(../image/tm_brand_11_tab.png) no-repeat center center;*/
+       position: relative;
+       margin-top: 15px;
+    }
+    
+    #charge button{
+      display:block;
+       position:relative;
+       width:90%;
+       height:40px;
+       margin:0 auto;
+       background-color:#3BC173;
+       color:#FFFFFF; 
+    }
+    
+    .none{
+     display:none;
+    }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <div id="cloud" class="topbar  activebar">
+         <span class="h-left" tapmode onclick="goback()">
+         <img src="../image/ic_back_u.png" width="12px" height="16px" tapmode onclick="goback()"/>
+        </span>
+              <label>用户协议</label> 
+              <!--<label>常见问题</label>
+              <label>关于我们</label>-->
+        </div>
+    </header>
+    
+    <div id="main">
+     
+   
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script> 
+
+<script type="text/javascript">
+    apiready = function () {
+        var $header = $api.dom('header');
+        $api.fixIos7Bar($header);
+        var index = api.pageParam['index'];
+//      alert('index:'+index);
+        opensettingX(index);
+
+    }
+function opensettingX(index){
+	var name,url;
+	switch(index){
+//	  case 1:
+//	  
+//		   name ='welcome';
+//		   url ='welcome.html';  
+//		   break;
+	  
+	  case 2:
+	  
+		   name ='agreement';
+		   url ='agreement.html';  
+		   break;
+	  
+	  case 3:
+	  
+		   name ='faq';
+		   url ='faq.html';  
+		   break;
+	  
+	  case 4:
+	  
+		   name ='about';
+		   url ='about.html';  
+		   break;
+	  
+	  
+	
+	}
+
+ api.openFrame({
+	        name: name,
+	        url: url,
+	        rect: {
+                x: 0,
+                y: 44,
+                w: 'auto',
+                h: 'auto'
+            }
+        });
+}
+</script>
+</html>

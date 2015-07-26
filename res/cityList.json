@@ -1,0 +1,74 @@
+{
+    "citys": [
+              {
+              "id": 110001,
+              "city": "北京",
+              "pinyin": "beijing"
+              },
+              {
+              "id": 310001,
+              "city": "上海",
+              "pinyin": "shanghai"
+              },
+              {
+              "id": 510001,
+              "city": "成都",
+              "pinyin": "chengdu"
+              },
+              {
+              "id": 440001,
+              "city": "广州",
+              "pinyin": "guangzhou"
+              },
+              {
+              "id": 440003,
+              "city": "深圳",
+              "pinyin": "shenzhen"
+              },
+              {
+              "id": 370002,
+              "city": "青岛",
+              "pinyin": "qingdao"
+              },
+               {
+              "id": 420001,
+              "city": "武汉",
+              "pinyin": "wuhan"
+              },
+              {
+                 "city": "天津",
+                 "id": 120001,
+                 "pinyin": "tianjin"
+              },
+              {
+              "id": 610001,
+              "city": "西安",
+              "pinyin": "xian"
+              },
+              {
+              "id": 410001,
+              "city": "郑州",
+              "pinyin": "zhengzhou"
+              },
+              {
+              "id": 320001,
+              "city": "南京",
+              "pinyin": "nanjing"
+              },
+              {
+              "id": 330001,
+              "city": "杭州",
+              "pinyin": "hangzhou"
+              },
+              {
+              "id": 500003,
+              "city": "重庆",
+              "pinyin": "chongqing"
+              },
+              {
+              "id": 430001,
+              "city": "长沙",
+              "pinyin": "changsha"
+              }
+              ]
+}

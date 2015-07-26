@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+         header{
+         font-family: sans-serif;
+          color: #323237;
+          font-size:1.2em;
+         }
+         #cloud .h-left{
+         position: absolute;
+         left:10px;
+         top:0px;
+         padding-right:10px;
+         color:#71D8A2;
+         
+        
+        }     
+         #cloud img{
+          position: absolute;
+          left: 10px;
+          top:20px;
+         }
+        .topbar {
+            background: #f2f2f2;
+            height: 50px;
+            border-bottom: 1px solid #DDDFE3;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+            color: #323237;
+        }
+
+         
+        .activebar {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <div id="cloud" class="topbar  activebar">
+         <span class="h-left" tapmode onclick="goback()">
+         <img src="../image/ic_back_u.png" width="12px" height="16px" tapmode onclick="goback()"/>
+         </span>
+              <label>全部服务</label> 
+        </div>
+    </header>
+    
+    <div id="main">
+
+    </div>
+   
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script> 
+
+<script type="text/javascript">
+    apiready = function () {
+        var $header = $api.dom('header');
+        $api.fixIos7Bar($header);
+        openservice();
+
+    }
+function openservice(){
+	  api.openFrame({
+	        name: 'service',
+	        url: 'service.html',
+	         rect: {
+                x: 0,
+                y: 44,
+                w: 'auto',
+                h: 'auto'
+            }
+        });
+	}	
+</script>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>	
+<html>	
+<head>	
+	<meta charset="utf-8">	
+	<title>frame</title>	
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>	
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />	
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />	
+	
+	<style>	
+		html, body {width: 100%;min-height: 100%;background: #e5e5e5;}	
+		body{	
+			overflow: hidden;	
+		}	
+		.h80 {height: 80px;}	
+		.h40 {height: 40px;}	
+		.h20 {height: 20px;}	
+    	.h10 {height: 10px;background: #e5e5e5;}	
+		.h1 {height: 1px;margin-left: 15px;background: #e5e5e5;}	
+		.fr {float: right;}	
+		.fl {float: left;}	
+		.hightitem {background-color: #fff;}	
+	
+			
+	
+		/* 2X2样式 */	
+		.row {display: -webkit-box;/*display: -webkit-flex;display: flex;*/}	
+		.col {-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;border-right:1px solid #F0F0F0;border-bottom:1px solid #F0F0F0;padding-top: 10px;padding-bottom: 10px;}	
+		.col img {position: absolute; /*left: 10px;*/ width: 80px; top: 0;}	
+		.col .matrixcell {display: table-cell;position: absolute; right:5px; /*vertical-align: middle;*/padding-top:25px; /*padding-left: 10px;*/}	
+		.col .matrixcell .title {/*margin-bottom: 10px;*/overflow: hidden;}	
+		.matrix {display: table;height: inherit;}	
+	
+		.sm{
+		  
+		   padding-left: 10px;
+		}
+		
+	
+	
+		/* 3. */	
+		.section03 .col img {width: 60px; top: 10px;}	
+		.section03 .title01 .title{color:  #ADD8A2;}	
+		.section03 .title02 .title{color: #3879D9;}	
+		.section03 .title03 .title{color: #ff558c;}	
+		.section03 .title04 .title{color: #19b4ff;}	
+		.section03 .matrixcell .info {color: #666;font-size: 12px;}	
+	    .gr {color: #323237 }
+	    .bl {color: #3879D9;}
+		
+	
+		/* 1. */	
+		.section01 .row {/*padding-top: 10px;*/}	
+		.section01 .col {text-align: center;}	
+		.section01 .col img {position: relative;width: 60%; }	
+		.section01 .col div {font-size: 13px;margin-top: 5px; }	
+	
+		.presshover {background-color: #FAFAFA;}	
+		.brb {border-bottom: 1px solid #e0e0e0;border-right: 1px solid #e0e0e0;}	
+		.bb {border-bottom: 1px solid #e0e0e0;}	
+		.br {border-right: 1px solid #e0e0e0;}	
+		
+		
+		 /*轮播*/
+    .wrap{
+      overflow: hidden;
+      visibility: hidden;
+      position: relative;
+      width: 100%;
+      height: 150px;
+    }
+    .wrap .inline-float{
+      overflow: hidden;
+      position: relative;
+    }
+    .wrap .inline-float li {
+      float: left;
+      width: 100%;
+      height: 150px;
+      position: relative;
+      text-align: center;
+      background-repeat:no-repeat;
+      background-size: 100% 100%;
+      background-color:#f5f5f5;
+    }
+    .slide-bullet{
+      position: absolute;
+      z-index:99;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+    }
+    .slide-bullet .icon-bullet{
+      font-style:normal;
+      font-size:0;
+      background-color: #ddd;
+      display: inline-block;
+      width: 15px;
+      height: 3px;
+      border-radius: 5px;
+     /* margin: 2px;*/
+    }
+    .slide-bullet .icon-bullet.active{
+      background-color: #fff;
+    }
+      /*end 轮播*/ 
+		
+	#swipe{
+	 position: absolute;
+	 margin-top: 20px;
+	}	
+	.swipe {	
+		width: 100%;	
+        background-color: #fff;	
+        overflow: hidden;	
+        position: relative;	
+    }	
+    .swipe-wrap {	
+        overflow: hidden;	
+        position: relative;	
+    }	
+    .swipe-wrap .swipe-box {	
+    	padding-bottom: 10px;	
+        float: left;	
+        width: 100%;	
+        position: relative;	
+    }	/**/
+	</style>	
+</head>	
+<body>
+    <div class="wrap" id="swipeSlide">
+          <ul class="inline-float">
+                <li style="background-image:url(../image/api_2.png)"></li>
+                <li style="background-image:url(../image/api_3.png)"></li>
+                 <li style="background-image:url(../image/api_2.png)"></li>
+                <li style="background-image:url(../image/api_3.png)"></li>
+                
+          </ul>
+                  <p class="slide-bullet">
+                  <i class="icon-bullet active"></i>
+                  <i class="icon-bullet"></i>
+                  <i class="icon-bullet"></i>
+                  <i class="icon-bullet"></i>
+                  </p>
+        </div>
+
+    <!-- 3. 2X2 列表 -->	
+	<!--<div class="h20"></div>	-->
+	<div class="row hightitem section03">	
+		<div class="col h80 brb sm" data-desc="家庭保洁" tapmode="presshover" onclick="openXservice(this)">	
+			<div class="matrix">	
+				<div class="matrixcell title01">	
+					<div class="title">家庭保洁</div>	
+					<div class="info">最专业的小时工</div>	
+				</div>	
+			</div>	
+			<img src="../image/api_33.png" alt="" class="fl">	
+		</div>	
+			
+		<div class="col h80 bb sm" data-desc="洗衣洗鞋" tapmode="presshover" onclick="openXservice(this)">	
+			<div class="matrix">	
+				<div class="matrixcell title02">	
+					<div class="title">洗衣洗鞋</div>	
+					<div class="info">满36免费取送</div>	
+				</div>	
+			</div>	
+			<img src="../image/api_33.png" alt="" class="fl">	
+		</div>	
+	</div>	
+    
+
+	
+	<div id="swipe" class="swipe section01">	
+		<div class="swipe-wrap">	
+			<div class="swipe-box"> 	
+				<div class="row">	
+					<div class="col" data-desc="擦玻璃" tapmode onclick="openXservice(this)">	
+						<img src="../image/food_u.png" alt="">	
+						<div class="">	
+							擦玻璃	
+						</div>	
+					</div>	
+					<div class="col" data-desc="深度保洁" tapmode onclick="openXservice(this)">	
+						<img src="../image/snack_u.png" alt="">	
+						<div class="">	
+							深度保洁	
+						</div>	
+					</div>	
+					<div class="col" data-desc="空调清洗" tapmode onclick="openXservice(this)">	
+						<img src="../image/bar_o.png" alt="">	
+						<div class="">	
+							空调清洗	
+						</div>	
+					</div>	
+					<!--<div class="col" tapmode onclick="">	
+						<img src="../image/more_u.png" alt="">	
+						<div class="">	
+							全部分类	
+						</div>	
+					</div>	-->
+				</div>	
+				<div class="row">	
+					<div class="col" data-desc="油烟机清洗" tapmode onclick="openXservice(this)">	
+						<img src="../image/groupon_u.png" alt="">	
+						<div class="">	
+							油烟机清洗
+						</div>	
+					</div>	
+					<div class="col" data-desc="新居开荒" tapmode onclick="openXservice(this)">	
+						<img src="../image/hotel_u.png" alt="">	
+						<div class="">	
+							新居开荒	
+						</div>	
+					</div>	
+					<div class="col" tapmode onclick="openallservice(this)">	
+						<img src="../image/takeaway_u.png" alt="">	
+						<div class="">	
+							全部分类	
+						</div>	
+					</div>	
+					<!--<div class="col" tapmode onclick="">	
+						<img src="../image/film_u.png" alt="">	
+						<div class="">	
+							看电影	
+						</div>	
+					</div>	-->
+				</div>	
+			</div>	
+	</div>	
+	</div>	
+		
+	
+	
+		
+</body>	
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/swipe.js"></script>	
+<script>	
+	window.onload = function() {	
+		var mySwiper = Swipe($api.byId('swipe'),{	
+			continuous: true	
+		});	
+		
+		var $slide = document.getElementById('swipeSlide'),
+         aBullet = $slide.querySelectorAll('.icon-bullet');
+		var mySwipe1 = new Swipe($slide,{
+		    auto: 3000,
+		    callback: function(i){
+		        len = aBullet.length;  
+		      while(len--) {
+		        aBullet[len].classList.remove('active');
+		        // }
+		      }
+		      aBullet[i].classList.add('active');
+		    }
+		  });
+	}
+	function openallservice(){
+	  api.openWin({
+	        name: 'service-win',
+	        url: 'service-win.html'
+        });
+	}	
+	
+	
+	function openXservice(el){
+      var type = $api.attr(el, 'data-desc');
+	  api.openWin({
+	        name: 'order',
+	        url: 'order-win.html',
+	        pageParam: {'item': type}
+        });
+	}		
+</script>	
+</html>	

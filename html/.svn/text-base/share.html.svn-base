@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>告诉朋友</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background: #f0f0f0;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+         header{
+         font-family: sans-serif;
+          color: #323237;
+          font-size:1.2em;
+         }
+          #cloud .h-left{
+         position: absolute;
+         left:10px;
+         top:0px;
+         padding-right:10px;
+         color:#71D8A2;
+         
+        
+        }    
+         #cloud img{
+          position: absolute;
+          left: 10px;
+          top:20px;
+         }
+        .topbar {
+            background: #f2f2f2;
+            height: 50px;
+            border-bottom: 1px solid #DDDFE3;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+            color: #323237;
+        }
+
+         
+        .activebar {
+            display: block;
+        }
+        
+        .h10 {height: 10px;background: #f0f0f0;}	
+		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}	
+		.fr {float: right;}	
+		.hint {color: #666;font-size: 12px;margin-right: 5px;}	
+	
+		.firstblock, .secondblock, .thirdblock {background-color: #fff;margin-top:10px;}	
+		/* 头部登陆 */	
+		.login {position:relative;background:#fff;/*background-image: url(../image/api_31.png);*/background-repeat: no-repeat; background-size: contain; height: 105px;margin-top:5px;}	
+		.loginbg { width: 100%;}	
+		.login .personal_logo {position: absolute; left:0;top: 25px; width: 70px; margin-left: 20px;}	
+		.person_arrow {position: absolute;height: 20px; right: 10px; top: 90px;}	
+		.login .userinfo {position: absolute; top: 30px; margin-left: 100px;}	
+		.login .userinfo .title {font-size: 20px; color: #000;}	
+		.login .userinfo .subtitle {font-size: 14px; color: #000;border: 1px solid #fff;display: inline-block;padding: 3px;border-radius: 4px;margin-top: 5px;}
+		
+		/* 设置条目 */	
+		.item {height: 50px;line-height: 50px;padding-left: 15px;background-color: #fff;}	
+		.item_ico {float: left;width: 30px;padding: 10px 10px 10px 0;}	
+		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
+	
+		.presshover {background-color: #FAFAFA;}	
+		
+		 #charge{
+       width:100%;
+       height:60px;
+       margin:0 auto;
+       /*background:url(../image/tm_brand_11_tab.png) no-repeat center center;*/
+       position: relative;
+       margin-top: 15px;
+    }
+    
+    #charge button{
+      display:block;
+       position:relative;
+       width:90%;
+       height:40px;
+       margin:0 auto;
+       background-color:#3BC173;
+       color:#FFFFFF; 
+    }
+    
+    .none{
+     display:none;
+    }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <div id="cloud" class="topbar  activebar">
+         <span class="h-left" tapmode onclick="goback()">
+         <img src="../image/ic_back_u.png" width="12px" height="16px" tapmode onclick="goback()"/>
+         </span>
+              <label>告诉朋友</label> 
+        </div>
+    </header>
+    
+    <div id="main">
+       <!-- 第一块 -->	
+	<div class="firstblock">	
+		<div class="item" tapmode="presshover" onclick="sinaweibo()">	
+			<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">	
+			<span>分享到微博</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="weixin(1)">	
+			<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">	
+			<span>分享到朋友圈</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>
+		<div class="item" tapmode="presshover" onclick="weixin(2)">	
+			<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">	
+			<span>分享给微信好友</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>
+		<div class="item" tapmode="presshover" onclick="sms()">	
+			<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">	
+			<span>短信分享</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>		
+		
+	</div>	
+	
+	
+   
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script> 
+<script type="text/javascript">
+apiready = function () {
+    var $header = $api.dom('header');
+    $api.fixIos7Bar($header);
+}
+function weixin(index){
+	var scene;
+	api.alert({
+	    title: "提示",
+	    msg: "体验微信分享功能前,请确认手机中已经安装微信!"
+	});
+	if (index==1){
+	  scene = 'timeline';
+	}else if (index==2){
+	  scene = 'session';
+	} 
+	
+	var weiXin = api.require('weiXin');
+	
+	/* 注册应用. */
+	weiXin.registerApp(
+	    function(ret,err){
+	        if ( ! ret.status) {
+	            api.toast({
+	                msg: err.msg,
+	                duration: 1000,
+	                location: "top"
+	            });
+	
+	            return;
+	        }
+	
+	        /* 分享内容 */
+	        weiXin.sendRequest({
+	            scene:scene,
+	            contentType:'web_page',
+	            title:'APICloud',
+	            description:'APICloud 重新定义移动开发',
+	            thumbUrl:'widget://image/common/bg.png',
+	            contentUrl: 'http://www.apicloud.com/'
+	        },function(ret,err){
+	            if( ! ret.status){
+	                api.toast({
+	                    msg: err.msg,
+	                    duration: 1000,
+	                    location: "top"
+	                });
+	
+	                return;
+	            }
+	
+	            api.toast({
+	                msg: "分享成功",
+	                duration: 1000,
+	                location: "top"
+	            });
+	        });
+	
+	    }
+	);
+
+}
+function sinaweibo(){
+	var sinaWeiBo = api.require('sinaWeiBo');
+	
+	sinaWeiBo.auth({
+	    redirectUrl: 'http://www.apicloud.com'
+	},function(ret,err){
+	    if( ! ret.status){
+	        api.toast({
+	            msg: "登陆失败!",
+	            duration: 1000,
+	            location: "top"
+	        });
+	
+	        return;
+	    }
+	
+	    /* 分享. */
+	    sinaWeiBo.sendRequest({
+	        contentType: 'text',
+	        text: '这是测试用的文本',
+	        imageUrl: 'fs://a.png'
+	    },function(ret,err){
+	        if( ! ret.status){
+	            api.toast({
+	                msg: "分享失败!",
+	                duration: 1000,
+	                location: "top"
+	            });
+	
+	            return;
+	        }
+	
+	        api.toast({
+	            msg: "内容已分享至新浪微博",
+	            duration: 1000,
+	            location: "top"
+	        });
+	    });
+	});
+}
+function sms(){
+	api.sms({
+	    numbers: ['10086'],
+	    text: '测试短信'
+	},function(ret, err){
+	    if(ret.status){
+	        api.alert({msg:'发送成功'});
+	    } else{
+	        api.alert({msg:'发送失败'});
+	    }
+	});
+
+}
+</script>
+</html>

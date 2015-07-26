@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+     <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+
+
+        #main {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            background:#F8F8F8;
+        }
+       
+       
+       #notice {
+        position:relative ;
+        margin-top:10px;
+       padding-top:20px;
+       height:80px;
+       width:100%;
+       background:url(../image/bangdan.png) no-repeat center center;
+       background-size:48px 48px;
+        text-align:center;
+         background-color:#FFFFFF;
+        
+       }
+    #notice p{
+      color: gray;
+      position: relative;
+      margin-top:55px;
+     
+       
+    
+    }
+    /*item*/
+   /* 设置条目 */	
+		.item {height: 50px;line-height: 50px;padding-left: 15px;background-color: #fff;}	
+		.item_ico {float: left;width: 30px;padding: 10px 10px 10px 0;}	
+		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
+	
+		.presshover {background-color: #FAFAFA;}
+		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}
+    #charge{
+       width:100%;
+       height:60px;
+       margin:0 auto;
+       background:url(../image/tm_brand_11_tab.png) no-repeat center center;
+       position: absolute;
+       bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+<div id="wrap">
+   
+    <div id="main">
+             <div id="notice">
+               <p>客服会尽快处理此订单</p>
+             
+             </div>
+		
+			<div class="secondblock">	
+		<div class="item" tapmode="presshover" onclick="">	
+			<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">	
+			<span id="service">油烟机清洗</span>	
+			<!--<img src="../image/arrow.png" alt="" class="item_arrow">-->	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="">	
+			<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
+			<span id="time">2015-7-17 08:00</span>	
+			<!--<img src="../image/arrow.png" alt="" class="item_arrow">-->	
+		</div><div class="h1"></div>	
+		<div class="item none" tapmode="presshover" onclick="">	
+			<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
+			<span id="addr">东三里屯社区</span>	
+			<!--<img src="../image/arrow.png" alt="" class="item_arrow">	-->
+		</div><div class="h1"></div>
+		<div class="item" tapmode="presshover" onclick="">	
+			<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">	
+			<span id="plus">说明</span>	
+			<!--<img src="../image/arrow.png" alt="" class="item_arrow">-->	
+		</div><div class="h1"></div>	
+			
+	</div>	
+		    <div id="charge">
+               
+             
+             </div>
+    </div>
+    
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+    
+    update();
+		
+    }
+   function update(){
+  
+    var service = $api.getStorage('service');
+    var time = $api.getStorage('time');
+    var addr = $api.getStorage('orderadd');
+    var plus = $api.getStorage('plus');
+//  api.toast({
+//	    msg:service+time+addr+plus
+//  });
+    if(!service)
+    $api.text($api.byId('service'),service);
+    if(!time)
+    $api.text($api.byId('time'),time);
+    if (!addr)
+    $api.text($api.byId('addr'),addr);
+    if(!plus)
+    $api.text($api.byId('plus'),plus);
+     
+    $api.rmStorage('nameaddr');
+	$api.rmStorage('name');
+	$api.rmStorage('addr');
+	$api.rmStorage('plus'); 
+	$api.rmStorage('orderadd');     
+	$api.rmStorage('time');  
+   
+   }
+</script>
+</html>

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+     <link rel="stylesheet" href="../css/api.css">
+     <link rel="stylesheet" href="../css/common.css">
+    <title>充值</title>
+    <style>
+       
+       header{
+         font-family: sans-serif;
+          color: #323237;
+          font-size:1.2em;
+         }
+        #cloud .h-left{
+         position: absolute;
+         left:10px;
+         top:5px;
+         padding-right:10px;
+         color:#71D8A2;
+         
+        
+        }
+        
+        #cloud .h-right {
+         position: absolute;
+         right:10px;
+         top:5px;
+        
+        }
+        #cloud label{
+          
+        }
+        
+        
+        .topbar {
+            background: #f2f2f2;
+            height: 50px;
+            border-bottom: 1px solid #DDDFE3;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+            color: #323237;
+        }
+
+        .activebar {
+            display: block;
+        }
+
+       #main{
+        background:#F0F0F0;
+       
+       }
+      #account{
+        position: relative;
+      
+        background:#FFFFFF;
+        line-height: 4em;
+        margin-top:5px;
+        border-bottom: 1px solid #DDDFE3;
+        border-top: 1px solid #DDDFE3;
+       }
+     
+      .account-left{
+        padding-left:10px;
+        
+        }
+      .account-right{
+        position: absolute;
+        right: 10px;
+      
+       
+       }
+       #info{
+        position: relative;
+      
+        background:#FFFFFF;
+     
+       }
+       .info-left{
+        padding-left:10px;
+        margin-top:10px;
+        
+        }
+      .info-right{
+        position: absolute;
+        right: 10px;
+        margin-top:10px;
+      
+       
+       } 
+       #info li{
+       border-bottom: 1px solid #DDDFE3;
+       line-height: 2em;
+       }
+       .mes{
+        position: relative;
+        display:inline-block;
+        top:-5px;
+        left:15px;
+       
+       }
+       .gr{
+	      color:#3BC173;
+	    }
+	       
+       
+       	html, body {width: 100%;min-height: 100%;background: #e5e5e5;}	
+		body{	
+			overflow: hidden;	
+		}	
+		.h40 {height: 40px;}
+		.h20 {height: 20px;padding-left:20px; padding-top:5px ;padding-bottom:5px;}	
+		.fl {float: left;}	
+		.hightitem {background-color: #fff;}	
+	
+			
+	
+		/* 2X2样式 */	
+		.row {display: -webkit-box;/*display: -webkit-flex;display: flex;*/}	
+		.col {-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;border-right:1px solid #F0F0F0;border-bottom:1px solid #F0F0F0;padding-top: 10px;padding-bottom: 10px;}	
+		.col img {position: absolute; /*left: 10px;*/ width:16px;padding-top:10px;}	
+		.col .matrixcell {display: table-cell;position: absolute; padding-left:35px; /*vertical-align: middle;*/padding-top:5px; /*padding-left: 10px;*/}	
+		.col .matrixcell .title {/*margin-bottom: 10px;*/overflow: hidden;}	
+		.matrix {display: table;height: inherit;}	
+	
+		.sm{
+		  
+		   padding-left: 10px;
+		}
+		
+	
+	
+		/* 3. */	
+		.section03 .col img {width: 24px; top: 10px;}	
+		.section03 .title01 .title{color:  #ADD8A2;}	
+		.section03 .title02 .title{color: #3879D9;}	
+		.section03 .title03 .title{color: #ff558c;}	
+		.section03 .title04 .title{color: #19b4ff;}	
+		.section03 .matrixcell .info {color: #666;font-size: 12px;}	
+	    
+		
+	
+		/* 1. */	
+			
+	
+		.presshover {background-color: #FAFAFA;}	
+		.brb {border-bottom: 1px solid #e0e0e0;border-right: 1px solid #e0e0e0;}	
+		.bb {border-bottom: 1px solid #e0e0e0;}	
+			
+		
+	
+       
+       
+       
+        #charge{
+       width:100%;
+       height:60px;
+       margin:0 auto;
+       /*background:url(../image/tm_brand_11_tab.png) no-repeat center center;*/
+       position: absolute;
+       bottom: 5px;
+	    }
+	    
+	    #charge button{
+	      display:block;
+	       position:relative;
+	       width:90%;
+	       height:40px;
+	       margin:0 auto;
+	       background-color:#3BC173;
+	       color:#FFFFFF;
+	       border-radius: 5px; 
+	    }
+	    
+    </style>
+</head>
+<body>
+    <div id="wrap">
+       <header>
+        <div id="cloud" class="topbar  activebar">
+         <span class="h-left" tapmode onclick="goback()">
+         <img src="../image/ic_back_u.png" width="12px" height="16px"/>
+         </span>
+                             <label>充值</label> 
+         <span class="h-right">
+           <img src="../res/image/phoneicon.png" width="16px" height="16px"/>
+         </span>
+                               
+        </div>
+        
+    </header>
+        <div id="main">
+             <div id="account">
+             <span class="account-left">充值账户</span><span class="account-right">155****8202</span>
+             </div>
+             
+             <div id="info">
+               <ul>
+                 <li>
+                    <span class="info-left">
+	               <img src="../image/charge1000.png" width="24px" height="24"/><div class="mes">充<span class="gr">1000元</span>&nbsp;送&nbsp;<span class="gr">100</span></div>
+	             </span>
+	            
+	             <span class="info-right"><img src="../image/icon_success.png" width="24px" height="24px" data-id='1' tapmode onclick="change(this)"/></span>
+                 
+                 </li>
+                  <li>
+                    <span class="info-left">
+	               <img src="../image/charge2000.png" width="24px" height="24"/><div class="mes">充<span class="gr">1000元</span>&nbsp;送&nbsp;<span class="gr">100</span></div>
+	             </span>
+	            
+	             <span class="info-right"><img src="../image/icon_submit_2.png" width="24px" height="24px" data-id='2' tapmode onclick="change(this)"/></span>
+                 
+                 </li>
+                  <li>
+                    <span class="info-left">
+	               <img src="../image/charge5000.png" width="24px" height="24"/><div class="mes">充<span class="gr">1000元</span>&nbsp;送&nbsp;<span class="gr">100</span></div>
+	             </span>
+	            
+	             <span class="info-right"><img src="../image/icon_submit_2.png" width="24px" height="24px" data-id='3' tapmode onclick="change(this)"/></span>
+                 
+                 </li>
+                  
+               </ul>
+	            
+	          </div>
+	          
+	          <div class="h20">会员特权</div>
+	          <div class="row hightitem section03">	
+				<div class="col h40 brb sm" data-desc="家庭保洁" tapmode="presshover" onclick="openXservice(this)">	
+					<div class="matrix">	
+						<div class="matrixcell title01">	
+							<div class="title">家庭保洁</div>	
+							<div class="info">最专业的小时工</div>	
+						</div>	
+					</div>	
+					<img src="../image/join_04.png" alt="" class="fl">	
+				</div>	
+					
+				<div class="col h40 bb sm" data-desc="洗衣洗鞋" tapmode="presshover" onclick="openXservice(this)">	
+					<div class="matrix">	
+						<div class="matrixcell title02">	
+							<div class="title">洗衣洗鞋</div>	
+							<div class="info">满36免费取送</div>	
+						</div>	
+					</div>	
+					<img src="../image/join_07.png" alt="" class="fl">	
+				</div>	
+			</div>	
+	         <div class="row hightitem section03">	
+				<div class="col h40 brb sm" data-desc="家庭保洁" tapmode="presshover" onclick="openXservice(this)">	
+					<div class="matrix">	
+						<div class="matrixcell title01">	
+							<div class="title">家庭保洁</div>	
+							<div class="info">最专业的小时工</div>	
+						</div>	
+					</div>	
+					<img src="../image/join_09.png" alt="" class="fl">	
+				</div>	
+					
+				<div class="col h40 bb sm" data-desc="洗衣洗鞋" tapmode="presshover" onclick="openXservice(this)">	
+					<div class="matrix">	
+						<div class="matrixcell title02">	
+							<div class="title">洗衣洗鞋</div>	
+							<div class="info">满36免费取送</div>	
+						</div>	
+					</div>	
+					<img src="../image/join_10.png" alt="" class="fl">	
+				</div>	
+			</div>  
+	          
+              <div id="charge">
+             <button tapmode onclick="savemsg()">立即充值</button>  
+             
+             </div>
+        </div>
+
+    </div>
+ <script type="text/javascript" src="../script/api.js"></script>
+ <script type="text/javascript" src="../script/common.js"></script> 
+<script type="text/javascript">
+apiready = function(){
+    var header = $api.byId('header');
+    $api.fixIos7Bar(header);
+	
+}
+function savemsg(){
+  api.showProgress({
+   title: '交易中',
+  });
+  setTimeout(function(){
+       api.hideProgress();
+     },50000);
+     
+  api.closeWin();
+
+}
+function change(el){
+//	el.src= "../image/icon_success.png";
+	
+	// $api.css(el,'src:"../image/icon_success.png"');
+	var ellist = $api.domAll('.info-right');
+//	alert('ellist.length'+ellist.length);
+	for(i=0;i<ellist.length;i++){
+	   
+	  var el2= $api.first(ellist[i],'img');
+	  
+	  if($api.attr(el2,'data-id')==$api.attr(el,'data-id'))
+	    {
+	     el2.src="../image/icon_success.png";
+	    }
+	    else{
+	      el2.src="../image/icon_submit_2.png";
+	    }
+	 }    
+}
+</script>
+</body>
+</html>

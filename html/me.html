@@ -1,0 +1,206 @@
+<!DOCTYPE html>	
+<html>	
+<head>	
+	<meta charset="utf-8">	
+	<title>frame</title>	
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>	
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />	
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />	
+	
+    <style>	
+    	html, body {width: 100%;min-height: 100%;background: #f0f0f0;}	
+    	.h10 {height: 10px;background: #f0f0f0;}	
+		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}	
+		.fr {float: right;}	
+		.hint {color: #666;font-size: 12px;margin-right: 5px;}	
+	
+		.firstblock, .secondblock, .thirdblock {background-color: #fff;margin-top:10px;}	
+		/* 头部登陆 */	
+		.login {position:relative;background:#fff;/*background-image: url(../image/api_31.png);*/background-repeat: no-repeat; background-size: contain; height: 105px;margin-top:5px;}	
+		.loginbg { width: 100%;}	
+		.login .personal_logo {position: absolute; left:0;top: 25px; width: 70px; margin-left: 20px;}	
+		.person_arrow {position: absolute;height: 20px; right: 10px; top: 90px;}	
+		.login .userinfo {position: absolute; top: 30px; margin-left: 100px;}	
+		.login .userinfo .title {font-size: 20px; color: #000;}	
+		.login .userinfo .subtitle {font-size: 14px; color: #000;border: 1px solid #fff;display: inline-block;padding: 3px;border-radius: 4px;margin-top: 5px;}	
+	   #account{
+	     background:#fff;
+	     border-top:1px solid #F0F0F0;
+	     box-sizing:border-box;
+	     height: 30px;
+	   }
+	   #account span{
+	           position:relative;
+		       text-align:center;
+		        height: 30px;
+		        padding-top:5px;
+		       width: 49%;
+		       font-size: 1.2em;
+   
+        }
+         #account span:first-child{
+         border-right:1px solid #F0F0F0;
+          
+         }
+         
+         #account span p{
+          display:inline-block;
+         }
+         .account-left{
+           position:absolute;
+           left:5px;
+         }
+          .account-right{
+           position:absolute;
+           right:5px;
+         }
+	
+		/* 设置条目 */	
+		.item {height: 50px;line-height: 50px;padding-left: 15px;background-color: #fff;}	
+		.item_ico {float: left;width: 30px;padding: 10px 10px 10px 0;}	
+		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
+	
+		.presshover {background-color: #FAFAFA;}	
+    </style>	
+</head>	
+<body>	
+	<div class="login" onclick="" tapmode>	
+		<!--<img src="../image/api_31.png" alt="" class="loginbg">	-->
+		<img src="../image/user.png" alt="" class="personal_logo">	
+		<div class="userinfo" tapmode onclick="login()">	
+			<div class="title" tapmode onclick="login()">点击登录</div>	
+			<div class="subtitle">北京</div>	
+		</div>	
+		<!--<img src="../image/personal_icon_arrow.png" alt="" class="person_arrow">-->	
+	</div>	
+	<div id="account">
+	      <span><p class="account-left">余额</p><p class="account-right">0&nbsp;元</p></span><span><p class="account-left">优惠券</p><p class="account-right">0&nbsp;张</p></span>
+	</div>
+	<!-- 第一块 -->	
+	<div class="firstblock">	
+		<div class="item" tapmode="presshover" onclick="openpocket()">	
+			<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">	
+			<span>充值</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="openaddress()">	
+			<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">	
+			<span>服务地址</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		
+	</div>	
+		
+	
+	<!-- 第二块 -->	
+	<!--<div class="h10"></div>-->	
+	<div class="secondblock">	
+		<div class="item" tapmode="presshover" onclick="openshare()">	
+			<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">	
+			<span>告诉朋友</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="evaluate()">	
+			<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
+			<span>给阿姨帮好评</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="opensuggestion()">	
+			<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
+			<span>意见反馈</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div>
+		<div class="item" tapmode="presshover" onclick="opensetting()">	
+			<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">	
+			<span>更多设置</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div>		
+	</div>	
+	
+	
+		
+	
+	
+</body>	
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript">	
+apiready = function () {
+	 exec();
+}
+function evaluate(){
+	if (api.systemType =="android"){
+	    var smarket = api.require('marketScore');
+	    var param = {appname:"com.tencent.mm"};
+	    smarket.myScore(param);
+	}else{
+	    api.openApp({
+	        iosUrl: 'https://itunes.apple.com/cn/app/wei-xin/id414478124?mt=8'
+	    },function(ret,err){
+	    });
+	}
+}
+function opensetting(){
+ api.openWin({
+	 name: 'setting',
+	 url: 'setting-win.html'
+ });
+
+}
+function opensuggestion(){
+api.openWin({
+	 name: 'suggest',
+	 url: 'suggestion.html'
+ });
+}
+function openshare(){
+api.openWin({
+	 name: 'share',
+	 url: 'share.html'
+ });
+}
+function login(){
+if($api.getStorage('phone')) return;
+api.openWin({
+	 name: 'login',
+	 url: 'login.html'
+ });
+
+}
+function exec(){
+	var user = $api.getStorage('phone');
+	if(user){
+	  
+		var city = $api.getStorage('city');
+		if(!city){
+		  city = '北京'
+		}
+		
+		$api.text($api.dom('.title'),user);
+		$api.text($api.dom('.subtitle'),city);
+	
+	
+	}else{
+	  $api.text($api.dom('.title'),'点击登录');
+	  $api.text($api.dom('.subtitle'),'北京');
+	
+	}
+
+
+}
+function openpocket(){
+  api.openWin({
+	  name: 'charge',
+	  url: 'charge.html'
+  });
+
+}
+
+function openaddress(){
+  api.openWin({
+	  name: 'adresslist',
+	  url: 'addresslist.html'
+  });
+
+}
+</script>	
+</html>	

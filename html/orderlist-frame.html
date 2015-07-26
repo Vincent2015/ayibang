@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+     <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+
+
+        #main {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            background:#F8F8F8;
+        }
+        
+        
+        .item {height: 40px;line-height: 40px;padding-left: 35px;background-color: #fff; position:relative;}	
+		.item_ico {float: left;width: 30px;padding: 5px 10px 5px 0px;margin-left:-30px;position:relative;}	
+		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
+	
+		.presshover {background-color: #FAFAFA;}
+		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}
+		
+        .secondblock{
+         margin-top:15px;
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #F0F0F0;
+        
+        }
+       
+       .secondblock label{
+         position: absolute;
+         left:10px;
+        /* margin-top:5px;*/
+          
+      
+       }
+       
+       .secondblock button{
+         position: absolute;
+         right:10px;
+         border: 1px solid green;
+         border-radius: 2px;
+          padding-top:5px;
+          padding-bottom:5px;
+         
+          color:green;
+          margin-top:5px;
+         
+       }
+    </style>
+</head>
+<body>
+<div id="wrap">
+   
+    <div id="main">
+    	<div class="secondblock">	
+			<div class="item" tapmode="presshover" onclick="">	
+				<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">	
+				<span>油烟机清洗</span>	
+				
+			</div><div class="h1"></div>	
+			<div class="item" tapmode="presshover" onclick="">	
+				<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
+				<span>2015-7-17 08:00</span>	
+					
+			</div><div class="h1"></div>	
+			<div class="item none" tapmode="presshover" onclick="">	
+				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
+				<span>东三里屯社区</span>	
+				
+				
+			</div><div class="h1"></div>
+			<div class="item none" tapmode="presshover" onclick="">
+				<label>待处理</label><button>取消订单</button>
+				</div><div class="h1"></div>
+		</div>	
+        <div class="secondblock">	
+			<div class="item" tapmode="presshover" onclick="">	
+				<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">	
+				<span>油烟机清洗</span>	
+				
+			</div><div class="h1"></div>	
+			<div class="item" tapmode="presshover" onclick="">	
+				<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
+				<span>2015-7-17 08:00</span>	
+					
+			</div><div class="h1"></div>	
+			<div class="item none" tapmode="presshover" onclick="">	
+				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
+				<span>东三里屯社区</span>	
+				
+				
+			</div><div class="h1"></div>
+			<div class="item none" tapmode="presshover" onclick="">
+				<label>待处理</label><button>取消订单</button>
+				</div><div class="h1"></div>
+		</div>
+      
+    </div>
+    
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        
+     
+    }
+   
+</script>
+</html>

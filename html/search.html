@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+     <link rel="stylesheet" href="../css/api.css">
+     <link rel="stylesheet" href="../css/common.css">
+    <title>输入您的小区名</title>
+    <style>
+        #wrap{
+           background: #F0F0F0;
+
+        }
+         #header{
+          height: 44px;
+          background: #FFFFFF;
+        }
+
+        
+      
+        #header input{
+         position:relative;
+         height: 44px;
+         width: 65%;
+         margin-left:-15%;
+         /*padding-left:60px;*/         
+         border: 1px solid #F0F0F0;
+         border-radius: 3px;
+         z-index: 1;
+
+
+        }
+         #header img{
+          display:inline-block;
+          position:absolute;
+          width: 24px;
+          height:24px;
+          top:10px;
+	       left: 5px;
+          z-index:100;
+         }
+        #header button{
+	      display:inline-block;
+	       position:absolute;
+	       width:20%;
+	       height:40px;
+	       top:2px;
+	       right: 10px;
+	       border:1px solid #3BC173;
+	       border-radius:5px;
+	       background-color:#FFFFFF;
+	       color:#3BC173; 
+         }
+
+  
+        #datalist{
+         margin-top:10px;
+         height:auto;
+       }
+        #datalist li{
+	   
+	   	/* display:block;*/
+		 height:40px;	
+		 width:90%; 
+		 border-bottom: 1px solid #CCCCCC;
+		 margin-left: 5%;
+		 line-height: 1.5em;
+		 padding-top:10px;
+		 padding-bottom:10px;
+	   }
+	   .title{
+	    font-size: 1.2em;
+	   }
+	   .content{
+	     text-overflow: ellipsis;
+	     overflow: hidden;
+	   }
+	   .none{
+	     display:none;
+	   }
+	   .listActive{
+	    background-color:#FAFAFA;
+	   }
+    </style>
+      
+</head>
+<body>
+    <div id="wrap">
+       <div id="header">
+             <img src="../image/booking_channel_search_icon.png" id="back" alt="">
+            <input type="text" name="name" id="name" placeholder="输入您的小区名"></input>
+            <button tapmode="listActive" onclick="searcharea()">搜索</button>
+        </div>
+        <div id="main">
+                
+           
+              <script id="page-template" type="text/x-dot-template">
+               {{ for(var i=0, len=it.length; i<len; i++) {}}
+					<li  tapmode="listActive" data-id="{{=it[i].uid}}" data-name="{{=it[i].name}}" data-addr="{{=it[i].add}}" onclick="setit(this);">
+				   		
+						<p class="title">
+						   {{=it[i].name}}</p>
+						   <!--<i class="edit"></i>-->
+							
+							<p class="content">
+						 	  {{=it[i].add}}
+						   </p>						   
+				    
+				    </li>
+			   {{ } }}
+	          </script>
+	          
+	        <div id="datalist">
+	           <ul id="list"></ul>
+           </div>
+        </div>
+    </div>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>  
+<script type="text/javascript">
+apiready = function(){
+  var key = api.pageParam['key'];
+  $api.text($api.byId('name'),key);
+   searcharea(key);
+}
+function searcharea(key){
+    var city='北京';
+    if($api.getStorage('city')){
+      city = $api.getStorage('city');
+    
+    } 
+    if(!key){
+      key =$api.val($api.byId('name'));
+     
+    }
+	var index= 0;
+	var map = api.require('baiduMap');
+	map.searchInCity({
+	    city:city,
+	    key:key
+	},function(ret,err){
+//	    api.alert({title:'搜索结果总条数',msg:ret.totalNum}); 
+	    if(ret.status){
+	        var content = $api.byId('list');
+            var tpl = $api.byId('page-template').text;
+            var tempFn = doT.template(tpl);
+            content.innerHTML = tempFn(ret.resultArray);
+          
+            api.parseTapmode();
+	       
+	    
+	    }
+	    
+	});
+}
+function setit(el){
+  var area = $api.attr(el,'data-name');
+  $api.setStorage('name',area);
+  var addr = $api.attr(el,'data-addr');
+  $api.setStorage('addr',addr);
+  api.execScript({
+      name: 'address',
+	  script: 'update();'
+  });
+  api.closeToWin({
+	  name: 'address'
+  });
+  return;
+}
+</script> 
+</body>
+</html>

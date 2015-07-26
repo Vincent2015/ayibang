@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        /*slide*/
+        .swipe {
+            height: 100%;
+            overflow: hidden;
+            /*visibility: hidden;*/
+            position: relative;
+        }
+
+        .swipe-wrap {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swipe-wrap > div {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        .swipe-wrap > div {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swipe-wrap img {
+            width: 100%;
+            height: 75%;
+            min-width: 320px;
+        }
+
+        #slide {
+            margin: 0 auto;
+            position: relative;
+        }
+        #pointer {
+            position: absolute;
+            bottom: 62px;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+        #pointer div {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            margin-right: 4px;
+            background-color: #FFFFFF;
+        }
+
+        #pointer div.active {
+            background-color: #999999;
+        }
+        .bg{
+			background-image: -moz-linear-gradient(top, #47C9DB, #47C9DB); /* Firefox */
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #47C9DB), color-stop(1, #47C9DB)); /* Saf4+, Chrome */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47C9DB', endColorstr='#47C9DB', GradientType='0'); /* IE*/
+        }
+        
+        #charge{
+       width:100%;
+       height:60px;
+       margin:0 auto;
+       /*background:url(../image/tm_brand_11_tab.png) no-repeat center center;*/
+       position: absolute;
+       bottom: 0px;
+    }
+    
+    #charge button{
+      display:block;
+       position:relative;
+       width:35%;
+       height:30px;
+       margin:0 auto;
+       background-color:#FF3C00;
+       color:#FFFFFF; 
+       border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+<div id='slide' class='swipe'>
+    <div class='swipe-wrap' id="banner-content">
+        <div class="bg">
+            <img src="../image/tw01.png"/>
+        </div>
+        <div class="bg">
+            <img src="../image/tw02.png"/>
+        </div>
+        <div class="bg">
+            <img src="../image/tw03.png"/>
+        </div>
+        <div class="bg" >
+            <img src="../image/tw04.png"/>
+        </div>
+    </div>
+    <div id="pointer">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+     <div id="charge">
+             <button tapmode onclick="start()">立即体验</button>  
+             
+             </div>
+</div>
+<script src="../script/api.js"></script>
+<script src="../script/swipe.js"></script>
+<script>
+    apiready = function () {
+
+    }
+    function initSlide() {
+        var slide = $api.byId('slide');
+        var pointer = $api.domAll('#pointer div');
+        window.mySlide = Swipe(slide, {
+            auto: 0,
+            continuous: false,
+            disableScroll: true,
+            stopPropagation: true,
+            callback: function (index, element) {
+                var actPoint = $api.dom('#pointer div.active');
+                $api.removeCls(actPoint, 'active');
+                $api.addCls(pointer[index], 'active');
+            },
+            transitionEnd: function (index, element) {
+
+            }
+        });
+    }
+    initSlide();
+    function start(){
+    $api.setStorage('showGuide','1');
+    api.openWin({
+	    name: 'index',
+	    url: '../index.html'
+    });
+    }
+</script>
+</body>
+</html>

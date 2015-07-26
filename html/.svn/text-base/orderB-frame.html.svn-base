@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+     <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+
+
+        #main {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            background:#F8F8F8;
+        }
+        .order{
+          border-top: 1px solid #F0F0F0;
+          border-bottom: 1px solid #F0F0F0;
+          margin-top:120px;
+          background-color:#FFFFFF;
+          
+        }
+       .order p{
+          padding-top:5px;
+          padding-bottom:5px;
+          padding-left:25px;
+       
+       }
+       .service{
+         background:url(../image/ic_qiubaihuo_select.png) no-repeat left center/16px 16px;
+       }
+       
+       .time{
+         background:url(../image/ic_qiubaihuo_select.png) no-repeat left center/16px 16px;
+       }
+       
+       
+       
+       .location{
+         background:url(../image/ic_nearby_select.png) no-repeat left center/16px 16px;
+       }
+       .beizhu{
+         background:url(../image/ic_nearby_select.png) no-repeat left center/16px 16px;
+       }
+       
+       #notice {
+        position:absolute ;
+        margin-top:10px;
+       padding-top:20px;
+       height:80px;
+       width:100%;
+       background:url(../image/bangdan.png) no-repeat center center/46px 46px;
+        text-align:center;
+         background-color:#FFFFFF;
+        
+       }
+    #notice p{
+      color: gray;
+      position: relative;
+      margin-top:55px;
+     
+       
+    
+    }
+    #charge{
+       width:90%;
+       height:60px;
+       margin:0 auto;
+       background:url(../image/tm_brand_11_tab.png) no-repeat center center;
+       position: absolute;
+       bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+<div id="wrap">
+   
+    <div id="main">
+             <div id="notice">
+               <p>客服会尽快处理此订单</p>
+             
+             </div>
+			<div class="order">
+			   <p class="service">油烟机清洗</p>
+			   <p class="time">2015-7-17 08:00</p>
+			   <p class="location">东三里屯社区</p>
+			   <p class="location">说明</p>
+			</div>
+			
+		    <div id="charge">
+               
+             
+             </div>
+    </div>
+    
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        
+     
+    }
+   
+</script>
+</html>
